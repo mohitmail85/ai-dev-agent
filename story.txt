@@ -1,0 +1,31 @@
+
+
+Update Taxi Licensing Authority list
+AS a taxi broker
+I WANT to be able to select from the full list of UK licensing authorities
+SO THAT I am able to quote for all UK customers.
+
+From feedback from Next Venture and Brokers, we have identified some missing licensing authorities in our list (and a couple on our list that should be removed).
+
+In summary we need to make the below changes:
+
+Licensing Authority	Postcode	Add/Remove	Additional Notes
+Aylesbury Vale		Remove	
+Chiltern		Remove	
+Eden		Remove	
+South Lakeland		Remove	
+Badenoch & Strathspey (Kingussie)	PH21 1EJ	Add 	
+Chester City Council	KW1 4AB	Add 	
+West Berkshire District Council	RG14 5LD	Add 	
+Westmorland and Furness Council (Barrow Office)	LA14 2LD	Add 	
+Westmorland and Furness Council (Kendall Office)	LA9 4DQ	Add 	
+Westmorland and Furness Council (Penrith Office)	CA11 7QF	Add 	
+Guernsey	GY1 1FH	Add 	Needs to decline
+Isles of Scilly Council	TR21 0LW	Add 	Needs to decline
+Skye & Lochalsh (Isle Of Skye)	IV49 9AB	Add 	Needs to decline
+
+Pricing / UW Requirements:
+1.	All of the above additions can be assigned to the "Other" rating band .
+2.	Guernsey, Isles of Scilly Council and Skye & Lochalsh (Isle Of Skye) licensing authorities should be declined with the following error message when they try and quote "Sorry, the licensing authority selected does not fall within our cover criteria so we are unfortunately unable to provide a quote".
+
+
