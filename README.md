@@ -82,13 +82,13 @@ Prompts you to pick a repo and type your story.
 
 ### Story from a file
 ```bash
-python run.py taxi-product story.txt
-python run.py broker-portal story.txt
+python run.py example-backend story.txt
+python run.py example-portal story.txt
 ```
 
 ### Specify repo only
 ```bash
-python run.py taxi-product
+python run.py example-backend
 # Then paste your story interactively
 ```
 
@@ -102,15 +102,15 @@ PR updates automatically.
 
 ### Fix by PR number (fetches comments from GitHub)
 ```bash
-python run.py taxi-product --review 42
-python run.py broker-portal --review 17
+python run.py example-backend --review 42
+python run.py example-portal --review 17
 ```
 Requires `gh auth login`. The agent fetches all inline and general review
 comments for that PR, checks out the feature branch, and fixes everything.
 
 ### Fix from a feedback file (manual review notes)
 ```bash
-python run.py taxi-product --review review_feedback.txt
+python run.py example-backend --review review_feedback.txt
 ```
 Write your review comments in a plain text file and pass it as the source.
 Useful when you want to describe issues without raising a formal GitHub review,
@@ -162,8 +162,8 @@ If the new repo is similar to an existing one, reuse its type:
 
 | Repo kind | Type to use |
 |-----------|-------------|
-| Root SDK backend (Taxi, Van, etc.) | `root-sdk-module` |
-| Next.js broker portal | `nextjs-portal` |
+| SDK-based backend module | `sdk-module` |
+| Next.js web portal | `nextjs-portal` |
 | New kind | Add a new type under `repo_types:` |
 
 ### Step 2 — Add the repo (5 lines)
@@ -171,10 +171,10 @@ If the new repo is similar to an existing one, reuse its type:
 ```yaml
 repos:
 
-  van-product:
-    type: root-sdk-module
-    local_path: D:/Work/root/Van-Dev/van-product-module
-    github_url: https://github.com/Admiral-Business/van-product-module.git
+  example-service:
+    type: sdk-module
+    local_path: /path/to/example-service
+    github_url: https://github.com/your-org/example-service.git
     main_branch: main
 ```
 
@@ -185,10 +185,10 @@ That's it. The agent inherits all commands from the type:
 ### Step 3 — Override anything if needed
 
 ```yaml
-  van-product:
-    type: root-sdk-module
-    local_path: D:/Work/root/Van-Dev/van-product-module
-    github_url: https://github.com/Admiral-Business/van-product-module.git
+  example-service:
+    type: sdk-module
+    local_path: /path/to/example-service
+    github_url: https://github.com/your-org/example-service.git
     main_branch: main
     # Override just what's different:
     test_command: npm run test:unit -- --reporter=verbose
@@ -217,16 +217,16 @@ Then reference it in repos as `type: migration-module`.
 
 ## Configured Repo Types
 
-### `root-sdk-module`
-Root Platform insurance product module.
+### `sdk-module`
+Backend product module.
 - TypeScript, Vitest, Node environment
 - Tests: `npm run test:unit` (`.spec.ts` colocated next to source)
 - Zod: always `import z from '@/z'` — never from `'zod'`
-- Protected files: `src/bundle-tests/`, `src/root.d.ts`
+- Protected files: `src/bundle-tests/`, `src/sdk.d.ts`
 - Auto-generated (do not edit): `payloads/`, `code/`, `workflows/`
 
 ### `nextjs-portal`
-Next.js 14 App Router broker portal.
+Next.js 14 App Router web portal.
 - TypeScript, Jest, jsdom environment
 - Tests: `npm test` (`.test.ts` or `__tests__/` folders)
 - TDD required, 90% coverage target
@@ -238,7 +238,7 @@ Next.js 14 App Router broker portal.
 
 | Name | Type | Path |
 |------|------|------|
-| `my-backend` | root-sdk-module | /path/to/your/backend-module |
+| `my-backend` | sdk-module | /path/to/your/backend-module |
 | `my-frontend` | nextjs-portal | /path/to/your/frontend-app |
 
 ---
@@ -274,8 +274,8 @@ The agent **never pushes to `main` directly**.
 Every task is saved to `logs/`:
 ```
 logs/
-├── 20260318_143022_taxi-product.md
-├── 20260318_162541_broker-portal.md
+├── 20260318_143022_example-backend.md
+├── 20260318_162541_example-portal.md
 ```
 
 Each log contains the user story and the agent's final result summary.

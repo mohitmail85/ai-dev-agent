@@ -16,10 +16,10 @@ Usage:
 
 Examples:
   python run.py
-  python run.py taxi-product
-  python run.py taxi-product story.txt
-  python run.py taxi-product --review 42
-  python run.py taxi-product --review review_feedback.txt
+  python run.py example-backend
+  python run.py example-backend story.txt
+  python run.py example-backend --review 42
+  python run.py example-backend --review review_feedback.txt
 """
 import sys
 import yaml

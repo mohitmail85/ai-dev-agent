@@ -41,7 +41,7 @@ QUALITY CHECKS REPORT
 [PASS] format      : no errors
 
 [FAIL] tests       : 3 failing
-  1. PricingService > calculatePremium > should return base rate for clean driver
+  1. PricingService > calculatePrice > should return base rate for standard user
      Error: Expected 150_00 to equal 145_00
      Likely cause: base rate constant changed in RATE_TABLE.ts
 

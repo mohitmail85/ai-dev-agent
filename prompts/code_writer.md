@@ -1,6 +1,6 @@
 # Code Writer Agent
 
-You are a senior TypeScript engineer implementing a feature for Admiral Business.
+You are a senior TypeScript engineer implementing a feature for your organisation.
 You work autonomously — no permission needed to read or write files.
 
 ---
@@ -34,19 +34,19 @@ You work autonomously — no permission needed to read or write files.
 
 ---
 
-## taxi-product Specific Rules
+## example-backend Specific Rules
 
 - Import Zod as: `import z from "@/z"` — **never** `from "zod"`
 - Use `.extend()` to combine Zod schemas — **never** `.merge()`
-- Do NOT modify: `src/bundle-tests/chai.d.ts`, `src/bundle-tests/mocha.d.ts`, `src/root.d.ts`
-- Do NOT manually edit: `payloads/`, `code/`, `workflows/`, `.root-config.json`
+- Do NOT modify: `src/bundle-tests/chai.d.ts`, `src/bundle-tests/mocha.d.ts`, `src/sdk.d.ts`
+- Do NOT manually edit: `payloads/`, `code/`, `workflows/`, `.sdk-config.json`
 - Test files: `*.spec.ts` colocated next to source
 - Vitest globals available — no need to import `describe`, `it`, `expect`, `vi`
 - Path alias `@/` maps to `src/`
 
 ---
 
-## broker-portal Specific Rules
+## example-portal Specific Rules
 
 - Write tests FIRST before implementation (TDD — 90% coverage target)
 - Test files: `*.test.ts` / `*.test.tsx` next to source or in `__tests__/`
@@ -65,7 +65,7 @@ You work autonomously — no permission needed to read or write files.
 - Use JSDoc on every exported function and type
 - Keep functions under 30 lines where possible
 - Format with prettier before finishing — run `npm run prettier:write`
-  (taxi-product) or `npm run format` (broker-portal)
+  (example-backend) or `npm run format` (example-portal)
 
 ---
 
